@@ -1,10 +1,10 @@
 "use client";
 
-import { FiSun, FiMoon } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import { Moon, Sun } from "lucide-react";
 
 export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false);
@@ -27,7 +27,7 @@ export default function ThemeSwitch() {
 
     return (
       <Button variant="toggle" size="icon">
-        {resolvedTheme === "dark" ? <FiSun size={18} onClick={() => setTheme("light")} /> : <FiMoon size={18} onClick={() => setTheme("dark")} />}
+        {resolvedTheme === "dark" ? <Sun size={18} onClick={() => setTheme("light")} /> : <Moon size={18} onClick={() => setTheme("dark")} />}
       </Button>
     );
 }

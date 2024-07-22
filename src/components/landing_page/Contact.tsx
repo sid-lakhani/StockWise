@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Contact() {
     return (
-        <div className='h-[100dvh] flex flex-row items-center'>
+        <div id="contact" className='h-[100dvh] flex flex-row items-center'>
             contact
         </div>
     )
