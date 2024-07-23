@@ -1,9 +1,32 @@
-import React from 'react'
+import React from "react";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { Button } from "../ui/button";
 
 export default function Contact() {
-    return (
-        <div id="contact" className='h-[100dvh] flex flex-row items-center'>
-            contact
+  return (
+    <div
+      id="contact"
+      className="h-[80dvh] flex justify-center items-center gap-4"
+    >
+      <div className="w-1/3">
+        <div className="inline-block rounded-lg bg-slate-800 dark:bg-slate-900 text-white px-3 py-1 text-xs">
+          Contact Us
         </div>
-    )
+        <h2 className="text-5xl font-bold tracking-tighter my-4">
+          Get in Touch
+        </h2>
+        <form className="grid gap-2 text-white dark:text-black font-medium">
+          <Input type="text" placeholder="Name" />
+          <Input type="email" placeholder="email" />
+          <Textarea placeholder="Message" />
+          <Button variant="submit" type="submit" className="w-full">
+            Submit
+          </Button>
+        </form>
+      </div>
+      <div>abcd
+      </div>
+    </div>
+  );
 }

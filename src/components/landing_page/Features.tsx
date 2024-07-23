@@ -4,7 +4,7 @@ export default function Features() {
   return (
     <div
       id="features"
-      className="h-[120dvh] flex flex-col gap-8 items-center justify-center border-b-[1px] border-slate-500 mx-32"
+      className="h-[110dvh] flex flex-col gap-8 items-center justify-center border-b-[1px] border-slate-500 mx-32"
     >
       <div className="inline-block rounded-lg bg-slate-800 dark:bg-slate-900 text-white px-3 py-1 text-xs">
         Key Features
