@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <div
       id="contact"
-      className="h-[80dvh] flex justify-center items-center gap-4"
+      className="h-[60dvh] flex justify-center items-center gap-4 mb-12"
     >
       <div className="w-1/3">
         <div className="inline-block rounded-lg bg-slate-800 dark:bg-slate-900 text-white px-3 py-1 text-xs">
@@ -24,8 +24,6 @@ export default function Contact() {
             Submit
           </Button>
         </form>
-      </div>
-      <div>abcd
       </div>
     </div>
   );

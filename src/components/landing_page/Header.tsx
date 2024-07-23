@@ -1,7 +1,7 @@
 import Image from "next/image";
-import ThemeSwitcher from "./ThemeSwitcher";
-import Nav from "./Nav";
+import ThemeSwitcher from "../ThemeSwitcher";
 import Link from "next/link";
+import Nav from "./Nav";
 
 export default function Header() {
   return (

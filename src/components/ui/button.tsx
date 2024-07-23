@@ -19,7 +19,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50",
         link: "text-slate-900 underline-offset-4 hover:underline dark:text-slate-50",
         toggle: "hover:bg-bg-dark/10 dark:hover:bg-bg-light/10 rounded-full",
-        submit: "bg-black text-slate-50 hover:bg-bg-dark dark:bg-slate-900 dark:text-white dark:hover:bg-slate-900/70",
+        submit: "bg-slate-900 text-slate-50 hover:bg-slate-900/90",
       },
       size: {
         default: "h-10 px-4 py-2",

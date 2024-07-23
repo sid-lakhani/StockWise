@@ -2,12 +2,13 @@ import Image from "next/image";
 import React from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { Star } from "lucide-react";
 
 export default function Intro() {
   return (
     <div
       id="home"
-      className="h-[100dvh] flex flex-row items-center border-b-[1px] border-slate-500 mx-32"
+      className="h-[100dvh] flex flex-row items-center border-b border-slate-500 mx-32"
     >
       <div className="flex flex-col gap-6">
         <h1 className="text-5xl font-bold font-secondary">
@@ -24,7 +25,8 @@ export default function Intro() {
             <Button size="lg">Get Started</Button>
           </Link>
           <Link href="https://github.com/sid-lakhani/StockWise">
-            <Button variant="secondary" size="lg">
+            <Button variant="secondary" size="lg" className="gap-2">
+              <Star size={18} />
               Star on GitHub
             </Button>
           </Link>

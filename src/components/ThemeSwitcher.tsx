@@ -25,9 +25,13 @@ export default function ThemeSwitch() {
       />
     );
 
-    return (
-      <Button variant="toggle" size="icon">
-        {resolvedTheme === "dark" ? <Sun size={18} onClick={() => setTheme("light")} /> : <Moon size={18} onClick={() => setTheme("dark")} />}
-      </Button>
-    );
+  return (
+    <Button
+      variant="toggle"
+      size="icon"
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+    >
+      {resolvedTheme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+    </Button>
+  );
 }

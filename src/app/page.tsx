@@ -1,6 +1,8 @@
-import Header from "@/components/Header";
 import Contact from "@/components/landing_page/Contact";
 import Features from "@/components/landing_page/Features";
+import Footer from "@/components/landing_page/Footer";
+import GetStarted from "@/components/landing_page/GetStarted";
+import Header from "@/components/landing_page/Header";
 import Intro from "@/components/landing_page/Intro";
 
 export default function Home() {
@@ -9,7 +11,9 @@ export default function Home() {
       <Header />
       <Intro />
       <Features />
+      <GetStarted />
       <Contact />
+      <Footer />
     </main>
   );
 }
