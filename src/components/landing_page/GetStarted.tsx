@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default function GetStarted() {
   return (
@@ -14,7 +15,9 @@ export default function GetStarted() {
             tracker.
           </p>
         </div>
-        <Button className="px-4 py-2 mt-4 rounded-lg">Get Started</Button>
+        <Link href="/dashboard">
+          <Button className="px-4 py-2 mt-4 rounded-lg">Get Started</Button>
+        </Link>
       </div>
     </div>
   );

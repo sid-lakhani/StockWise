@@ -4,6 +4,7 @@ import Footer from "@/components/landing_page/Footer";
 import GetStarted from "@/components/landing_page/GetStarted";
 import Header from "@/components/landing_page/Header";
 import Intro from "@/components/landing_page/Intro";
+import MoreFeatures from "@/components/landing_page/MoreFeatures";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Header />
       <Intro />
       <Features />
+      <MoreFeatures />
       <GetStarted />
       <Contact />
       <Footer />
