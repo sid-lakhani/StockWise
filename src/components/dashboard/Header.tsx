@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Nav from "./Nav";
 import ThemeSwitcher from "../universal/ThemeSwitcher";
+import { CircleX } from "lucide-react";
+import { Button } from "../ui/button";
 
 export default function Header() {
   return (
@@ -19,6 +21,11 @@ export default function Header() {
       <div className="flex flex-row gap-6 items-center">
         <UserButton />
         <ThemeSwitcher />
+        <Link href="/" className="-ml-2">
+          <Button variant="toggle" size={"icon"}>
+            <CircleX size={18} />
+          </Button>
+        </Link>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 
 import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
-import { DollarSign, FileCheck2, Newspaper, TrendingUp } from "lucide-react";
+import { DollarSign, FileCheck2, Newspaper, ShoppingCart, TrendingUp } from "lucide-react";
 
 const features = [
   {
@@ -16,7 +16,7 @@ const features = [
     Icon: FileCheck2,
     name: "My Portfolio",
     description: "Monitor and manage your stock portfolio efficiently.",
-    href: "/dashboard/stocks",
+    href: "/dashboard/portfolio",
     cta: "Learn more",
     className: "row-span-1 col-span-3 lg:col-span-1",
     background: "",
@@ -31,10 +31,10 @@ const features = [
     background: "",
   },
   {
-    Icon: Newspaper,
-    name: "News",
-    description: "Stay updated with the latest market news.Easily purchase stocks and track your investments.",
-    href: "/dashboard/news",
+    Icon: ShoppingCart,
+    name: "Buy Stocks",
+    description: "Easily purchase stocks and track your investments.",
+    href: "/dashboard/stocks",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
     background: "",
