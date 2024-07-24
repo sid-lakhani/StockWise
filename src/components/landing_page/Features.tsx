@@ -5,7 +5,7 @@ export default function Features() {
   return (
     <div
       id="features"
-      className="h-[100dvh] flex flex-col gap-8 items-center justify-center  border-slate-500 mx-32 mt-12"
+      className="h-auto flex flex-col gap-8 items-center justify-center border-slate-500 mx-32 pt-24"
     >
       <Badge variant={"secondary"} className="cursor-default" >
         Key Features
