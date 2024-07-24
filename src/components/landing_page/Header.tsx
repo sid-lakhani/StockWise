@@ -2,6 +2,8 @@ import Image from "next/image";
 import ThemeSwitcher from "../ThemeSwitcher";
 import Link from "next/link";
 import Nav from "./Nav";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { Button } from "../ui/button";
 
 export default function Header() {
   return (
@@ -12,6 +14,12 @@ export default function Header() {
       </div>
       <div className="flex flex-row-reverse gap-6 items-center">
         <ThemeSwitcher />
+        <SignedOut>
+          <Button className="px-4 py-2 rounded-xl">
+          <SignInButton />
+          </Button>
+          </SignedOut>
+        <SignedIn><UserButton /></SignedIn>
         <Nav /> 
       </div>
     </div>

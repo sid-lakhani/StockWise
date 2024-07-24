@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import { ClerkProvider, SignedOut } from "@clerk/nextjs";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,16 +26,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.className} ${poppins.variable}`}
-      suppressHydrationWarning
-    >
-      <body>
-        <Providers>
-          {children}
-        </Providers>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html
+        lang="en"
+        className={`${inter.className} ${poppins.variable}`}
+        suppressHydrationWarning
+      >
+          <body>
+            <Providers>{children}</Providers>
+          </body>
+      </html>
+    </ClerkProvider>
   );
 }
