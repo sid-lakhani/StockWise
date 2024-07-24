@@ -1,10 +1,11 @@
 import Image from "next/image";
 import React from "react";
+import BlurFade from "../magicui/blur-fade";
 
 export default function MoreFeatures() {
   return (
     <div className="h-[150dvh] flex flex-col items-center justify-center">
-      <div className="h-[60dvh] flex flex-row gap-12 items-center justify-center mb-4">
+      <BlurFade delay={0.25} inView className="h-[60dvh] flex flex-row gap-12 items-center justify-center mb-4">
         <div className="w-1/3 grid gap-2">
           <h2 className="text-5xl font-bold tracking-tighter">
             Market at your Fingertips.
@@ -21,8 +22,8 @@ export default function MoreFeatures() {
           alt="Market in Hands"
           className="rounded-2xl"
         />
-      </div>
-      <div className="h-[60dvh] flex flex-row-reverse gap-12 items-center justify-center mb-4">
+      </BlurFade>
+      <BlurFade delay={0.25} inView className="h-[60dvh] flex flex-row-reverse gap-12 items-center justify-center mb-4">
         <div className="w-1/3 grid gap-2">
           <h2 className="text-5xl font-bold tracking-tighter">
             All your Bills in one place.
@@ -36,7 +37,7 @@ export default function MoreFeatures() {
           alt="Market in Hands"
           className="rounded-2xl"
         />
-      </div>
+      </BlurFade>
     </div>
   );
 }

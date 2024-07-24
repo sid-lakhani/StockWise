@@ -2,6 +2,7 @@ import React from "react";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
+import { Badge } from "../ui/badge";
 
 export default function Contact() {
   return (
@@ -10,9 +11,9 @@ export default function Contact() {
       className="h-[60dvh] flex justify-center items-center gap-4 mb-12"
     >
       <div className="w-1/3">
-        <div className="inline-block rounded-lg bg-slate-800 dark:bg-slate-900 text-white px-3 py-1 text-xs">
+        <Badge variant={"secondary"} className="cursor-default">
           Contact Us
-        </div>
+        </Badge>
         <h2 className="text-5xl font-bold tracking-tighter my-4">
           Get in Touch
         </h2>

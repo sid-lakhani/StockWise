@@ -1,3 +1,4 @@
+import { Badge } from "../ui/badge";
 import FeatureCards from "./FeatureCards";
 
 export default function Features() {
@@ -6,9 +7,9 @@ export default function Features() {
       id="features"
       className="h-[100dvh] flex flex-col gap-8 items-center justify-center  border-slate-500 mx-32 mt-12"
     >
-      <div className="inline-block rounded-lg bg-slate-800 dark:bg-slate-900 text-white px-3 py-1 text-xs">
+      <Badge variant={"secondary"} className="cursor-default" >
         Key Features
-      </div>
+      </Badge>
       <h2 className="text-5xl font-bold tracking-tighter">
         Unlock the Power of Data-Driven Investing
       </h2>
