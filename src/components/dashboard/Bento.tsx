@@ -10,6 +10,7 @@ const features = [
     href: "/dashboard/stocks",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
+    background: "",
   },
   {
     Icon: FileCheck2,
@@ -18,6 +19,7 @@ const features = [
     href: "/dashboard/portfolio",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
+    background: "",
   },
   {
     Icon: Newspaper,
@@ -26,6 +28,7 @@ const features = [
     href: "/dashboard/news",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
+    background: "",
   },
   {
     Icon: DollarSign,
@@ -34,6 +37,7 @@ const features = [
     className: "col-span-3 lg:col-span-1",
     href: "/dashboard/pay",
     cta: "Learn more",
+    background: "",
   },
 ];
 
