@@ -1,11 +1,12 @@
+import { Bento } from '@/components/dashboard/Bento'
 import Header from '@/components/dashboard/Header'
 import React from 'react'
 
 export default function page() {
     return (
-        <main>
+        <main className='h-screen flex items-center justify-center'>
             <Header />
-            This is the dashboard page
+            <Bento />
         </main>
     )
 }

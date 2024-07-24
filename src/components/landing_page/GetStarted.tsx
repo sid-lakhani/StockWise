@@ -16,7 +16,7 @@ export default function GetStarted() {
           </p>
         </div>
         <Link href="/dashboard">
-          <Button className="px-4 py-2 mt-4 rounded-lg">Get Started</Button>
+          <Button className="px-4 py-2 mt-4 rounded-lg">Start Earning</Button>
         </Link>
       </div>
     </div>

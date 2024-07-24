@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import { Moon, Sun } from "lucide-react";
 
-export default function ThemeSwitch() {
+export default function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
 
