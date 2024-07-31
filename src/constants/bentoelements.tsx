@@ -1,4 +1,4 @@
-import { DollarSign, FileCheck2, Newspaper, ShoppingCart, TrendingUp } from "lucide-react";
+import { DollarSign, Eye, FileCheck2, Newspaper, ShoppingCart, TrendingUp } from "lucide-react";
 
 export const bentoelements = [
     {
@@ -20,12 +20,12 @@ export const bentoelements = [
       background: "",
     },
     {
-      Icon: Newspaper,
-      name: "News",
-      description: "Stay informed with the latest news affecting your investments.",
-      href: "/dashboard/news",
+      Icon: Eye,
+      name: "Watchlist",
+      description: "Add desired stocks to your watchlist and track their performance.",
+      href: "/dashboard/stocks/watchlist",
       cta: "Learn more",
-      className: "row-span-2 col-span-3 lg:col-span-1",
+      className: "row-span-1 col-span-3 lg:col-span-1",
       background: "",
     },
     {
@@ -44,6 +44,15 @@ export const bentoelements = [
       className: "col-span-3 lg:col-span-1",
       href: "/dashboard/pay",
       cta: "Learn more",
+      background: "",
+    },
+    {
+      Icon: Newspaper,
+      name: "News",
+      description: "Stay informed with the latest news affecting your investments.",
+      href: "/dashboard/news",
+      cta: "Learn more",
+      className: "row-span-1 col-span-3 lg:col-span-1",
       background: "",
     },
 ];
