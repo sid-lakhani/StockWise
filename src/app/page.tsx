@@ -6,7 +6,9 @@ import Header from "@/components/landing_page/Header";
 import Intro from "@/components/landing_page/Intro";
 import MoreFeatures from "@/components/landing_page/MoreFeatures";
 
-export default function Home() {
+export default async function Home() {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
   return (
     <main>
       <Header />
