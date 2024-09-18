@@ -5,7 +5,7 @@ import SymbolSearch from '@/components/stocks/SymbolSearch';
 import StockData from '@/components/stocks/StockData'; 
 
 export default function Home() {
-  const [selectedSymbol, setSelectedSymbol] = useState(null);
+  const [selectedSymbol, setSelectedSymbol] = useState<string | null>(null);
 
   return (
     <main>

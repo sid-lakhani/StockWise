@@ -2,10 +2,15 @@
 
 import { useEffect, useState } from 'react';
 
-export default function StockData({ symbol }) {
-  const [stockData, setStockData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+// Define types for the component props
+interface StockDataProps {
+  symbol: string;
+}
+
+export default function StockData({ symbol }: StockDataProps) {
+  const [stockData, setStockData] = useState<any>(null); // Replace `any` with a more specific type if possible
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null); // Error can be a string or null
 
   const fetchStockData = async () => {
     if (!symbol) return;
@@ -22,7 +27,11 @@ export default function StockData({ symbol }) {
       const data = await res.json();
       setStockData(data);
     } catch (error) {
-      setError(error.message);
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError('An unknown error occurred');
+      }
     } finally {
       setLoading(false);
     }
@@ -30,7 +39,7 @@ export default function StockData({ symbol }) {
 
   useEffect(() => {
     fetchStockData();
-  }, [symbol]); // Refetch when symbol changes
+  }, [symbol]);
 
   if (loading) {
     return <p>Loading...</p>;

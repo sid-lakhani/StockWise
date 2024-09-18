@@ -2,11 +2,22 @@
 
 import { useState } from 'react';
 
-export default function SymbolSearch({ onSelectSymbol }) {
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+// Define the type for the props
+interface SymbolSearchProps {
+  onSelectSymbol: (symbol: string) => void; // Type for the function prop
+}
+
+// Define the type for search results
+interface SearchResult {
+  '1. symbol': string;
+  '2. name': string;
+}
+
+export default function SymbolSearch({ onSelectSymbol }: SymbolSearchProps) {
+  const [query, setQuery] = useState<string>(''); // Type for query state
+  const [results, setResults] = useState<SearchResult[]>([]); // Type for results state
+  const [loading, setLoading] = useState<boolean>(false); // Type for loading state
+  const [error, setError] = useState<string | null>(null); // Type for error state
 
   const handleSearch = async () => {
     if (!query) return;
@@ -23,13 +34,18 @@ export default function SymbolSearch({ onSelectSymbol }) {
       const data = await res.json();
       setResults(data.bestMatches || []);
     } catch (error) {
-      setError(error.message);
+      // Narrow down the type of error
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError('An unknown error occurred');
+      }
     } finally {
       setLoading(false);
     }
   };
 
-  const handleSelect = (symbol) => {
+  const handleSelect = (symbol: string) => {
     onSelectSymbol(symbol); // Pass the selected symbol to the parent component
   };
 
