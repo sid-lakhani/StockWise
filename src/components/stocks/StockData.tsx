@@ -2,15 +2,14 @@
 
 import { useEffect, useState } from 'react';
 
-// Define types for the component props
 interface StockDataProps {
   symbol: string;
 }
 
 export default function StockData({ symbol }: StockDataProps) {
-  const [stockData, setStockData] = useState<any>(null); // Replace `any` with a more specific type if possible
+  const [stockData, setStockData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null); // Error can be a string or null
+  const [error, setError] = useState<string | null>(null);
 
   const fetchStockData = async () => {
     if (!symbol) return;

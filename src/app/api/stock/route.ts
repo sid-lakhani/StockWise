@@ -1,11 +1,13 @@
-import type { NextRequest } from 'next/server';
-
-export async function GET(req: NextRequest) {
+export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
-  const symbol = searchParams.get('symbol') || 'AAPL';
-  const apiKey = process.env.NEXT_PUBLIC_ALPHA_VANTAGE_API_KEY;
+  const symbol = searchParams.get('symbol');
+  const apiKey = process.env.NEXT_PUBLIC_FINNHUB_API_KEY;
 
-  const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${apiKey}`;
+  if (!symbol) {
+    return new Response(JSON.stringify({ error: 'Missing symbol' }), { status: 400 });
+  }
+
+  const url = `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${apiKey}`;
 
   try {
     const response = await fetch(url);
@@ -17,10 +19,6 @@ export async function GET(req: NextRequest) {
     const data = await response.json();
     return new Response(JSON.stringify(data), { status: 200 });
   } catch (error) {
-    if (error instanceof Error) {
-      return new Response(JSON.stringify({ error: error.message }), { status: 500 });
-    } else {
-      return new Response(JSON.stringify({ error: 'An unknown error occurred' }), { status: 500 });
-    }
+    return new Response(JSON.stringify({ error: (error as Error).message }), { status: 500 });
   }
 }
