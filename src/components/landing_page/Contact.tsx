@@ -1,29 +1,55 @@
-import React from "react";
+'use client';
+import React, { useState } from "react";
+import { createClient } from "@supabase/supabase-js";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
-import { Badge } from "../ui/badge";
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+export const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!name || !email || !message) {
+      setError("All fields are required.");
+      return;
+    }
+
+    const { error } = await supabase.from("feedback").insert([
+      { name, email, message, submitted_at: new Date().toISOString() },
+    ]);
+
+    if (error) {
+      setError("There was an error submitting your feedback.");
+    } else {
+      setSuccess(true);
+      setError("");
+      setName("");
+      setEmail("");
+      setMessage("");
+    }
+  };
+
   return (
-    <div
-      id="contact"
-      className="h-[60dvh] flex justify-center items-center gap-4 mb-12"
-    >
+    <div id="contact" className="h-[60dvh] flex justify-center items-center gap-4 mb-12">
       <div className="w-1/3">
-        <Badge variant={"secondary"} className="cursor-default">
-          Contact Us
-        </Badge>
-        <h2 className="text-5xl font-bold tracking-tighter my-4">
-          Get in Touch
-        </h2>
-        <form className="grid gap-2 text-white dark:text-black font-medium">
-          <Input type="text" placeholder="Name" />
-          <Input type="email" placeholder="email" />
-          <Textarea placeholder="Message" />
-          <Button variant="submit" type="submit" className="w-full">
-            Submit
-          </Button>
+        <h2 className="text-5xl font-bold tracking-tighter my-4">Get in Touch</h2>
+        <form onSubmit={handleSubmit} className="grid gap-2">
+          <Input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+          <Input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <Textarea placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)} />
+          <Button type="submit" className="w-full">Submit</Button>
+          {error && <p className="text-red-500">{error}</p>}
+          {success && <p className="text-green-500">Feedback submitted successfully!</p>}
         </form>
       </div>
     </div>
