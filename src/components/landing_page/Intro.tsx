@@ -8,7 +8,7 @@ export default function Intro() {
   return (
     <div
       id="home"
-      className="h-[100dvh] flex flex-row items-center border-b border-slate-500 mx-32"
+      className="h-[100dvh] flex flex-row items-center border-b border-slate-500 mx-12 md:mx-32"
     >
       <div className="flex flex-col gap-6">
         <h1 className="text-5xl font-bold font-secondary">
@@ -32,7 +32,7 @@ export default function Intro() {
           </Link>
         </div>
       </div>
-      <Image src="hero.svg" width={600} height={500} alt="Hero Image" />
+      <Image src="hero.svg" width={600} height={500} alt="Hero Image" className="hidden md:block" />
     </div>
   );
 }

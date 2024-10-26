@@ -4,7 +4,7 @@ import BlurFade from "../magicui/blur-fade";
 
 export default function MoreFeatures() {
   return (
-    <div className="h-[150dvh] flex flex-col items-center justify-center">
+    <div className="h-[150dvh] md:flex flex-col items-center justify-center hidden">
       <BlurFade delay={0.25} inView className="h-[60dvh] flex flex-row gap-12 items-center justify-center mb-4">
         <div className="w-1/3 grid gap-2">
           <h2 className="text-5xl font-bold tracking-tighter">

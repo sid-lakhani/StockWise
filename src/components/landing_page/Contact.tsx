@@ -40,16 +40,16 @@ export default function Contact() {
   };
 
   return (
-    <div id="contact" className="h-[60dvh] flex justify-center items-center gap-4 mb-12">
-      <div className="w-1/3">
-        <h2 className="text-5xl font-bold tracking-tighter my-4">Get in Touch</h2>
-        <form onSubmit={handleSubmit} className="grid gap-2">
-          <Input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
-          <Input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          <Textarea placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)} />
+    <div id="contact" className="h-[60vh] flex justify-center items-center gap-2 md:gap-4 mb-12 px-4 md:px-0">
+      <div className="w-2/3 md:w-1/3">
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tighter my-4 text-center md:text-left">Get in Touch</h2>
+        <form onSubmit={handleSubmit} className="grid gap-4">
+          <Input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} className="w-full"/>
+          <Input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full"/>
+          <Textarea placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)} className="w-full"/>
           <Button type="submit" className="w-full">Submit</Button>
-          {error && <p className="text-red-500">{error}</p>}
-          {success && <p className="text-green-500">Feedback submitted successfully!</p>}
+          {error && <p className="text-red-500 text-center">{error}</p>}
+          {success && <p className="text-green-500 text-center">Feedback submitted successfully!</p>}
         </form>
       </div>
     </div>
