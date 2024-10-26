@@ -40,9 +40,9 @@ export default function Contact() {
   };
 
   return (
-    <div id="contact" className="h-[60vh] flex justify-center items-center gap-2 md:gap-4 mb-12 px-4 md:px-0">
-      <div className="w-2/3 md:w-1/3">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tighter my-4 text-center md:text-left">Get in Touch</h2>
+    <div id="contact" className="h-[60vh] flex justify-center items-center gap-2 xl:gap-4 mb-12 px-4 xl:px-0">
+      <div className="w-2/3 xl:w-1/3">
+        <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold tracking-tighter my-4 text-center xl:text-left">Get in Touch</h2>
         <form onSubmit={handleSubmit} className="grid gap-4">
           <Input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} className="w-full"/>
           <Input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full"/>

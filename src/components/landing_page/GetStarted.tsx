@@ -5,8 +5,8 @@ import Link from "next/link";
 export default function GetStarted() {
   return (
     <div className="h-[30dvh] bg-slate-300 dark:bg-slate-800 grid">
-      <div className="flex flex-col md:flex-row items-center justify-center md:justify-between px-8 md:px-40">
-        <div className="flex flex-row md:flex-col items-center md:items-start gap-6 md:gap-0">
+      <div className="flex flex-col md:flex-row items-center justify-center md:justify-between px-8 md:px-20 xl:px-40">
+        <div className="flex flex-row md:flex-col items-center md:items-start gap-6 md:gap-2 xl:gap-0">
           <h2 className="text-4xl font-bold tracking-tighter">
             Get Started Today
           </h2>

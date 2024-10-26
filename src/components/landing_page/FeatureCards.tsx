@@ -4,7 +4,7 @@ import { features, mobFeatures } from "@/constants/features";
 
 export function FeatureCards() {
   return (
-    <div className="hidden md:grid grid-cols-3 mx-16 gap-12 py-12">
+    <div className="hidden xl:grid grid-cols-3 mx-16 gap-12 py-12">
       {features.map((feature, index) => {
         return (
             <Card>
@@ -26,7 +26,7 @@ export function FeatureCards() {
 
 export function MobFeatureCards() {
   return (
-    <div className="md:hidden flex flex-col gap-2">
+    <div className="xl:hidden flex flex-col md:grid md:grid-cols-2 mt-8 gap-2">
       {mobFeatures.map((feature, index) => {
         return (
           <Card className="flex flex-row">

@@ -8,13 +8,13 @@ export default function Intro() {
   return (
     <div
       id="home"
-      className="h-[100dvh] flex flex-row items-center border-b border-slate-500 mx-12 md:mx-32"
+      className="h-[100dvh] flex flex-col xl:flex-row items-center justify-center border-b border-slate-500 mx-4 md:mx-16 xl:mx-32"
     >
       <div className="flex flex-col gap-6">
-        <h1 className="text-5xl font-bold font-secondary">
+        <h1 className="text-4xl xl:text-5xl font-bold font-secondary">
           Stay Ahead of the Market
         </h1>
-        <p className="text-xl text-slate-800 dark:text-slate-300">
+        <p className="text-lg md:text-xl text-slate-800 dark:text-slate-300">
           Your ultimate platform for tracking and managing investments, all in
           one convenient place. Stay ahead of the market with real-time data,
           insightful analytics, and powerful tools designed to help you make
