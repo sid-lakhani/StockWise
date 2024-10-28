@@ -7,7 +7,7 @@ export const bentoelements = [
       description: "Stay updated with real-time data on the latest stock market trends.",
       href: "/dashboard/explore",
       cta: "Explore Market Trends",
-      className: "row-span-2 col-span-3 lg:col-span-2",
+      className: "md:row-span-2 md:col-span-2",
       background: "",
     },
     {
@@ -16,7 +16,7 @@ export const bentoelements = [
       description: "Efficiently monitor and manage your stock portfolio.",
       href: "/dashboard/investments",
       cta: "View Portfolio",
-      className: "row-span-1 col-span-3 lg:col-span-1",
+      className: "md:row-span-1 md:col-span-1",
       background: "",
     },
     {
@@ -25,7 +25,7 @@ export const bentoelements = [
       description: "Add desired stocks to your watchlist and track their performance.",
       href: "/dashboard/explore/watchlist",
       cta: "Manage Watchlist",
-      className: "row-span-1 col-span-3 lg:col-span-1",
+      className: "md:row-span-1 md:col-span-1",
       background: "",
     },
     {
@@ -34,14 +34,14 @@ export const bentoelements = [
       description: "Easily purchase stocks and track your investments seamlessly.",
       href: "/dashboard/explore/stocks",
       cta: "Buy Stocks Now",
-      className: "col-span-3 lg:col-span-1",
+      className: "md:col-span-1",
       background: "",
     },
     {
       Icon: DollarSign,
       name: "Pay Bills",
       description: "Conveniently pay your bills directly from your account using UPI.",
-      className: "col-span-3 lg:col-span-1",
+      className: "md:col-span-1",
       href: "/dashboard/pay",
       cta: "Pay Bills",
       background: "",
@@ -52,7 +52,7 @@ export const bentoelements = [
       description: "Stay informed with the latest news affecting your investments.",
       href: "/dashboard/news",
       cta: "Read Latest News",
-      className: "row-span-1 col-span-3 lg:col-span-1",
+      className: "md:row-span-1 md:col-span-1",
       background: "",
     },
 ];
