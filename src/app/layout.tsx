@@ -67,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider afterSignInUrl="/dashboard" afterSignUpUrl="/dashboard" afterSignOutUrl="/">
+    <ClerkProvider>
       <html
         lang="en"
         className={`${inter.className} ${poppins.variable}`}
