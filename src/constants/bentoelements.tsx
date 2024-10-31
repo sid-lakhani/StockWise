@@ -1,3 +1,4 @@
+import News from "@/components/dashboard/bento-bg/News";
 import { DollarSign, Eye, FileCheck2, Newspaper, ShoppingCart, TrendingUp } from "lucide-react";
 
 export const bentoelements = [
@@ -53,6 +54,6 @@ export const bentoelements = [
       href: "/dashboard/news",
       cta: "Read Latest News",
       className: "md:row-span-1 md:col-span-1",
-      background: "",
+      background: <News />,
     },
 ];
