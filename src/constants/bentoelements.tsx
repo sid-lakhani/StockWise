@@ -54,6 +54,6 @@ export const bentoelements = [
       href: "/dashboard/news",
       cta: "Read Latest News",
       className: "md:row-span-1 md:col-span-1",
-      background: <News />,
+      background: "",
     },
 ];

@@ -31,12 +31,12 @@ const newsData = [
 ];
 
 export default function News() {
-  const firstRow = newsData.slice(0, newsData.length);
+  const row = newsData.slice(0, newsData.length);
 
   return (
-    <div className="fixed flex w-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl">
-      <Marquee pauseOnHover className="[--duration:30s]">
-        {firstRow.map((news, index) => (
+    <div className="fixed flex w-full flex-col items-center justify-center overflow-hidden rounded-lg">
+      <Marquee pauseOnHover className="[--duration:20s]">
+        {row.map((news, index) => (
           <NewsCard key={index} {...news} />
         ))}
       </Marquee>
