@@ -1,4 +1,3 @@
-import News from "@/components/dashboard/bento-bg/News";
 import { DollarSign, Eye, FileCheck2, Newspaper, ShoppingCart, TrendingUp } from "lucide-react";
 
 export const bentoelements = [

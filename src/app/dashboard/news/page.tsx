@@ -1,5 +1,5 @@
 import Header from "@/components/dashboard/Header";
-import React from "react";
+import News from "@/components/dashboard/News";
 
 export default async function Page() {
   await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -7,7 +7,7 @@ export default async function Page() {
   return (
     <div className="h-screen flex items-center justify-center">
       <Header />
-      dashboard/news
+      <News />
     </div>
   );
 }
