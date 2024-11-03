@@ -1,4 +1,5 @@
 import Header from "@/components/dashboard/Header";
+import Watchlist from "@/components/dashboard/Watchlist";
 import React from "react";
 
 export default async function Page() {
@@ -7,7 +8,7 @@ export default async function Page() {
   return (
     <div className="h-screen flex items-center justify-center">
       <Header />
-      dashboard/investments/watchlist
+      <Watchlist />
     </div>
   );
 }
