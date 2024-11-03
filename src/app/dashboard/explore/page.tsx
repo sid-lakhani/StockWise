@@ -1,3 +1,4 @@
+import Explore from "@/components/dashboard/Explore";
 import Header from "@/components/dashboard/Header";
 import React from "react";
 
@@ -7,7 +8,7 @@ export default async function Page() {
   return (
     <div className="h-screen flex items-center justify-center">
       <Header />
-      dashboard/explore
+      <Explore />
     </div>
   );
 }

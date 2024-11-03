@@ -7,7 +7,7 @@ export default async function Page() {
   return (
     <div className="h-screen flex items-center justify-center">
       <Header />
-      dashboard/explore/watchlist
+      dashboard/investments/stocks
     </div>
   );
 }

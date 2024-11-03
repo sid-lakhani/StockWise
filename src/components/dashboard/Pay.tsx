@@ -27,7 +27,7 @@ export default function Component() {
         <CardHeader>
           <CardTitle className="text-2xl flex items-center gap-2">
             <BarChart2 className="h-6 w-6" />
-            Stock Tracker UPI Transfer
+            Transfer Money with UPI
           </CardTitle>
           <CardDescription>Send money to other users</CardDescription>
         </CardHeader>
