@@ -1,31 +1,75 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Eye, Plus, TrendingDown, TrendingUp, X } from "lucide-react"
+import { supabase } from "@/lib/supabaseClient"
 
-const watchlistData = [
-  { symbol: "AAPL", name: "Apple Inc.", price: 150.25, change: 2.5 },
-  { symbol: "GOOGL", name: "Alphabet Inc.", price: 2800.75, change: -1.2 },
-  { symbol: "MSFT", name: "Microsoft Corporation", price: 305.50, change: 1.8 },
-  { symbol: "AMZN", name: "Amazon.com Inc.", price: 3400.00, change: 0.7 },
-  { symbol: "TSLA", name: "Tesla, Inc.", price: 750.80, change: 3.2 },
-]
+// Define the shape of the watchlist data
+interface WatchlistItem {
+  symbol: string;
+  indice: number;
+}
 
 export default function Watchlist() {
+  const [watchlistData, setWatchlistData] = useState<WatchlistItem[]>([]);
   const [searchTerm, setSearchTerm] = useState('')
 
-  const handleAddToWatchlist = () => {
-    console.log(`Adding ${searchTerm} to watchlist`)
-    setSearchTerm('')
-  }
+  // Fetch the watchlist from Supabase when the component mounts
+  useEffect(() => {
+    const fetchWatchlist = async () => {
+      const { data, error } = await supabase
+        .from('watchlist')
+        .select('*');
+
+      if (error) {
+        console.error("Error fetching watchlist data:", error);
+      } else {
+        setWatchlistData(data || []);
+      }
+    };
+
+    fetchWatchlist();
+  }, []);
+
+  // Add a symbol to the watchlist with a random indice
+  const handleAddToWatchlist = async () => {
+    if (!searchTerm) return;
+
+    const randomIndice = (Math.random() * 10 - 5).toFixed(1); // Random number between -5 and 5
+
+    const { data, error } = await supabase
+      .from('watchlist')
+      .insert([{ symbol: searchTerm, indice: parseFloat(randomIndice) }]);
+
+    if (error) {
+      console.error("Error adding to watchlist:", error);
+    } else {
+      setWatchlistData([...watchlistData, { symbol: searchTerm, indice: parseFloat(randomIndice) }]);
+      setSearchTerm('');
+    }
+  };
+
+  // Remove a symbol from the watchlist
+  const handleRemoveFromWatchlist = async (symbol: string) => {
+    const { error } = await supabase
+      .from('watchlist')
+      .delete()
+      .eq('symbol', symbol);
+
+    if (error) {
+      console.error("Error removing from watchlist:", error);
+    } else {
+      setWatchlistData(watchlistData.filter((item) => item.symbol !== symbol));
+    }
+  };
 
   return (
-    <div className="flex justify-center items-center min-h-screen lg:min-w-[80dvh] bg-background p-4">
-      <Card className="w-full max-w-2xl h-[600px] flex flex-col">
+    <div className="flex justrify-center items-center min-h-screen lg:min-w-[80dvh] bg-background p-4 pt-28">
+      <Card className="w-full max-w-2xl h-[750px] flex flex-col">
         <CardHeader>
           <CardTitle className="text-2xl flex items-center gap-2">
             <Eye className="h-6 w-6" />
@@ -50,16 +94,16 @@ export default function Watchlist() {
                 <div key={stock.symbol} className="flex items-center justify-between p-4 bg-card rounded-lg shadow">
                   <div>
                     <h3 className="font-semibold">{stock.symbol}</h3>
-                    <p className="text-sm text-muted-foreground">{stock.name}</p>
                   </div>
                   <div className="text-right">
-                    <p className="font-bold">${stock.price.toFixed(2)}</p>
-                    <p className={`text-sm flex items-center ${stock.change >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-                      {stock.change >= 0 ? <TrendingUp className="h-4 w-4 mr-1" /> : <TrendingDown className="h-4 w-4 mr-1" />}
-                      {stock.change >= 0 ? '+' : ''}{stock.change}%
+                    <p className={`font-bold ${stock.indice >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                      {stock.indice >= 0 ? '+' : ''}{stock.indice}%
+                    </p>
+                    <p className={`text-sm flex items-center ${stock.indice >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                      {stock.indice >= 0 ? <TrendingUp className="h-4 w-4 mr-1" /> : <TrendingDown className="h-4 w-4 mr-1" />}
                     </p>
                   </div>
-                  <Button variant="ghost" size="icon" className="ml-4">
+                  <Button variant="ghost" size="icon" className="ml-4" onClick={() => handleRemoveFromWatchlist(stock.symbol)}>
                     <X className="h-4 w-4" />
                     <span className="sr-only">Remove from watchlist</span>
                   </Button>

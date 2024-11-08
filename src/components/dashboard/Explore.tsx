@@ -1,14 +1,41 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+'use client';
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { BarChart2, Search, TrendingUp, TrendingDown, PieChart } from "lucide-react"
+import { BarChart2, Search, PieChart } from "lucide-react"
+import { supabase } from "@/lib/supabaseClient"
+import { useEffect, useState } from "react"
+
+interface MarketData {
+  symbol: string;
+  indice: number;
+}
 
 export default function Explore() {
+  const [marketData, setMarketData] = useState<MarketData[]>([]); 
+
+  useEffect(() => {
+    const fetchMarketData = async () => {
+      const { data, error } = await supabase
+        .from('market_overview')
+        .select('*');
+
+      if (error) {
+        console.error("Error fetching market data:", error);
+      } else {
+        const marketData = data || [];
+        setMarketData(marketData);
+      }
+    };
+
+    fetchMarketData();
+  }, []);
+
   return (
-    <div className="flex justify-center items-center min-h-screen lg:min-w-[80dvh] bg-background p-4">
-      <Card className="w-full max-w-4xl h-[600px] flex flex-col">
+    <div className="flex justify-center items-center min-h-screen w-full bg-background p-4">
+      <Card className="w-full max-w-4xl h-full flex flex-col">
         <CardHeader>
           <CardTitle className="text-2xl flex items-center gap-2">
             <BarChart2 className="h-6 w-6" />
@@ -33,110 +60,14 @@ export default function Explore() {
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="flex justify-between">
-                      <span>S&P 500</span>
-                      <span className="text-green-600">+1.2%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Nasdaq</span>
-                      <span className="text-green-600">+0.8%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Dow Jones</span>
-                      <span className="text-red-600">-0.3%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Russell 2000</span>
-                      <span className="text-green-600">+0.5%</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Tabs defaultValue="gainers">
-                <TabsList className="grid w-full grid-cols-2">
-                  <TabsTrigger value="gainers">Top Gainers</TabsTrigger>
-                  <TabsTrigger value="losers">Top Losers</TabsTrigger>
-                </TabsList>
-                <TabsContent value="gainers">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg flex items-center gap-2">
-                        <TrendingUp className="h-5 w-5 text-green-600" />
-                        Top Gainers
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2">
-                        <div className="flex justify-between">
-                          <span>AAPL</span>
-                          <span className="text-green-600">+5.2%</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>TSLA</span>
-                          <span className="text-green-600">+4.8%</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>NVDA</span>
-                          <span className="text-green-600">+3.9%</span>
-                        </div>
+                    {marketData.map((item, index) => (
+                      <div key={index} className="flex justify-between">
+                        <span>{item.symbol}</span>
+                        <span className={item.indice > 0 ? "text-green-600" : "text-red-600"}>
+                          {item.indice > 0 ? `+${item.indice}` : item.indice}%  
+                        </span>
                       </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-                <TabsContent value="losers">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg flex items-center gap-2">
-                        <TrendingDown className="h-5 w-5 text-red-600" />
-                        Top Losers
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2">
-                        <div className="flex justify-between">
-                          <span>META</span>
-                          <span className="text-red-600">-3.7%</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>NFLX</span>
-                          <span className="text-red-600">-2.9%</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>AMZN</span>
-                          <span className="text-red-600">-2.1%</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-              </Tabs>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg flex items-center gap-2">
-                    <PieChart className="h-5 w-5" />
-                    Sector Performance
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span>Technology</span>
-                      <span className="text-green-600">+2.3%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Healthcare</span>
-                      <span className="text-red-600">-0.7%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Financials</span>
-                      <span className="text-green-600">+1.1%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Energy</span>
-                      <span className="text-green-600">+0.9%</span>
-                    </div>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
@@ -145,5 +76,5 @@ export default function Explore() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

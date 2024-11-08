@@ -1,7 +1,7 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Briefcase, TrendingUp, PieChart, DollarSign, ArrowUpRight, ArrowDownRight } from "lucide-react"
+import { ArrowUpRight, Briefcase, DollarSign, TrendingUp } from "lucide-react"
 import Link from "next/link"
 
 export default function Portfolio() {
@@ -86,27 +86,9 @@ export default function Portfolio() {
                   </div>
                 </CardContent>
               </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg flex items-center gap-2">
-                    <PieChart className="h-5 w-5" />
-                    Portfolio Allocation
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="h-64 flex items-center justify-center bg-muted rounded-md">
-                    <p className="text-muted-foreground">Pie Chart Placeholder</p>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </ScrollArea>
         </CardContent>
-        <CardFooter className="justify-between">
-          <Button variant="outline">Export Report</Button>
-          <Button>Rebalance Portfolio</Button>
-        </CardFooter>
       </Card>
     </div>
   )
