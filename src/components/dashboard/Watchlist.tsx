@@ -8,7 +8,6 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Eye, Plus, TrendingDown, TrendingUp, X } from "lucide-react"
 import { supabase } from "@/lib/supabaseClient"
 
-// Define the shape of the watchlist data
 interface WatchlistItem {
   symbol: string;
   indice: number;
@@ -18,7 +17,6 @@ export default function Watchlist() {
   const [watchlistData, setWatchlistData] = useState<WatchlistItem[]>([]);
   const [searchTerm, setSearchTerm] = useState('')
 
-  // Fetch the watchlist from Supabase when the component mounts
   useEffect(() => {
     const fetchWatchlist = async () => {
       const { data, error } = await supabase
@@ -35,11 +33,10 @@ export default function Watchlist() {
     fetchWatchlist();
   }, []);
 
-  // Add a symbol to the watchlist with a random indice
   const handleAddToWatchlist = async () => {
     if (!searchTerm) return;
 
-    const randomIndice = (Math.random() * 10 - 5).toFixed(1); // Random number between -5 and 5
+    const randomIndice = (Math.random() * 10 - 5).toFixed(1); 
 
     const { data, error } = await supabase
       .from('watchlist')
@@ -53,7 +50,6 @@ export default function Watchlist() {
     }
   };
 
-  // Remove a symbol from the watchlist
   const handleRemoveFromWatchlist = async (symbol: string) => {
     const { error } = await supabase
       .from('watchlist')
