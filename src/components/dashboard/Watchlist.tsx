@@ -48,6 +48,7 @@ export default function Watchlist() {
       setWatchlistData([...watchlistData, { symbol: searchTerm, indice: parseFloat(randomIndice) }]);
       setSearchTerm('');
     }
+
   };
 
   const handleRemoveFromWatchlist = async (symbol: string) => {
@@ -64,8 +65,8 @@ export default function Watchlist() {
   };
 
   return (
-    <div className="flex justrify-center items-center min-h-screen lg:min-w-[80dvh] bg-background p-4 pt-28">
-      <Card className="w-full max-w-2xl h-[750px] flex flex-col">
+    <div className="flex justify-center items-center min-h-screen lg:min-w-[80dvh] bg-background p-4 pt-28">
+      <Card className="w-full max-w-2xl h-[600px] flex flex-col">
         <CardHeader>
           <CardTitle className="text-2xl flex items-center gap-2">
             <Eye className="h-6 w-6" />
