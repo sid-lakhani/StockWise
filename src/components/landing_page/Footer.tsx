@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="hidden md:block">
         made by{" "}
         <Link
-          href="https://sidlakhani.tech"
+          href="https://sidlakhani.in"
           className="border-b border-black dark:border-white"
         >
           Siddhesh Lakhani
@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="block md:hidden text-sm">
         ~{" "}
       <Link
-          href="https://sidlakhani.tech"
+          href="https://sidlakhani.in"
           className="border-b border-black dark:border-white"
         >
           Siddhesh Lakhani

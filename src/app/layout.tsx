@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "Stock Market Tracker that lets you buy and sell stocks, view your portfolio, and get real-time stock prices.",
   authors: {
     name: "Siddhesh Lakhani",
-    url: "https://stockwise.sidlakhani.tech/",
+    url: "https://stockwise.sidlakhani.in/",
   },
   creator: "Siddhesh Lakhani",
   publisher: "Siddhesh Lakhani",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    url: "https://stockwise.sidlakhani.tech/",
+    url: "https://stockwise.sidlakhani.in/",
     title: "StockWise",
   description:
     "Stock Market Tracker that lets you buy and sell stocks, view your portfolio, and get real-time stock prices.",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   twitter: {
     creator: "@sidlakhani_",
     creatorId: "x.com/sidlakhani_",
-    site: "https://stockwise.sidlakhani.tech/",
+    site: "https://stockwise.sidlakhani.in/",
     title: "StockWise",
     images: [
       {
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  metadataBase: new URL("https://stockwise.sidlakhani.tech"),
+  metadataBase: new URL("https://stockwise.sidlakhani.in"),
 };
 
 export default function RootLayout({
